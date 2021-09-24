@@ -4,8 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Jaken/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Jaken/app/src/main/res/layout/activity_page_connexion.xml" value="0.25416666666666665" />
+        <entry key="..\:/Jaken/app/src/main/res/layout/activity_page_connexion.xml" value="0.176" />
         <entry key="..\:/Jaken/app/src/main/res/layout/activity_page_inscription.xml" value="0.2520833333333333" />
+        <entry key="..\:/Jaken/app/src/main/res/layout/activity_page_menu.xml" value="0.2520833333333333" />
       </map>
     </option>
   </component>
