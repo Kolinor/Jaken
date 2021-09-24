@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jaken">
         <activity
+            android:name=".PageModeSoloMulti"
+            android:exported="true" />
+        <activity
             android:name=".PageMenu"
             android:exported="true" />
         <activity

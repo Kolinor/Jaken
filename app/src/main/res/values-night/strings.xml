@@ -14,4 +14,8 @@
     <string name="niveau_2">NIVEAU 2</string>
     <string name="niveau_3">NIVEAU 3</string>
     <string name="menu">MENU</string>
+    <string name="multijoueur">Multijoueur</string>
+    <string name="solo">solo</string>
+    <string name="mode_de_jeu">MODE DE JEU</string>
+    <string name="niveau">NIVEAU</string>
 </resources>
