@@ -26,20 +26,6 @@
         app:layout_constraintGuide_percent="0.14925373" />
 
     <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/date_de_naissance"
-        android:inputType="date"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.476" />
-
-    <EditText
         android:id="@+id/editTextPrenom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,6 +51,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:layout_constraintVertical_bias="0.177" />
+
+    <DatePicker
+        android:id="@+id/simpleDatePicker"
+        android:layout_width="251dp"
+        android:layout_height="103dp"
+        android:datePickerMode="spinner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.577" />
 
     <EditText
         android:id="@+id/editTextEmailAddress"
@@ -95,7 +92,7 @@
         app:layout_constraintVertical_bias="0.784" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnValider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="VALIDER"
