@@ -39,8 +39,10 @@ public class PageConnexion extends AppCompatActivity {
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
                                 if (task.getResult().size() >= 1) {
-                                    Intent intent = new Intent(PageConnexion.this, PageMenu.class);
+                                    Intent intent = new Intent(PageConnexion.this, PageModeSoloMulti.class);
                                     startActivity(intent);
+                                } else {
+
                                 }
                             } else {
                                 System.err.println("Error getting documents: " + task.getException());
