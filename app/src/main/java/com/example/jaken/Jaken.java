@@ -12,7 +12,7 @@ public class Jaken {
     private String[] secondLevel = {"Pierre", "Puit", "Papier", "Ciseaux"};
     private String[] thirdLevel = {"Pierre", "Feu", "Ciseaux", "Éponges", "Feuille", "Air", "Eau"};
 
-    
+
 
     public Jaken(int level) {
         this.level = level;
