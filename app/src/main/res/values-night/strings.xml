@@ -10,4 +10,8 @@
     <string name="homme">Homme</string>
     <string name="femme">Femme</string>
     <string name="bienvenue">BIENVENUE</string>
+    <string name="niveau_1">NIVEAU 1</string>
+    <string name="niveau_2">NIVEAU 2</string>
+    <string name="niveau_3">NIVEAU 3</string>
+    <string name="menu">MENU</string>
 </resources>
