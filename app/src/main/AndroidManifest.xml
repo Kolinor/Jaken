@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jaken">
         <activity
+            android:name=".PageInscription"
+            android:exported="true" />
+        <activity
+            android:name=".PageConnexion"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
