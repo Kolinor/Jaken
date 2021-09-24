@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "925419381825",
+    "project_id": "jaken-3f92d",
+    "storage_bucket": "jaken-3f92d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925419381825:android:10d91c7b8305b2729292c0",
+        "android_client_info": {
+          "package_name": "com.company.Jaken"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "925419381825-p0j231e3dq8me91of5l7100l0mv3rnlu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkbOO5euY8a72sr_exvi2nUv9Po1AokfU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "925419381825-p0j231e3dq8me91of5l7100l0mv3rnlu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
