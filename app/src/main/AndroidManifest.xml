@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jaken">
         <activity
+            android:name=".PagePremierNiveau"
+            android:exported="true" />
+        <activity
             android:name=".PageModeSoloMulti"
             android:exported="true" />
         <activity
