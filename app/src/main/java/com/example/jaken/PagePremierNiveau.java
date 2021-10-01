@@ -59,6 +59,7 @@ public class PagePremierNiveau extends AppCompatActivity {
 
         Intent intent = new Intent(PagePremierNiveau.this, PageRejouer.class);
         startActivity(intent);
+        finish();
 
         // cas de victoire
     }
