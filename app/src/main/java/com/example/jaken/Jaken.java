@@ -77,12 +77,22 @@ enum Signe {
 public class Jaken {
     static private final int manches = 5;
 
-    private int nManche = 0;
+    private int nManche = 1;
     private int level;
     ArrayList<Integer> levelChoose;
     private final boolean ia = true;
     private Context context;
     private int iaTurn;
+    private int score = 0;
+    private int iaScore = 0;
+
+    private int firstLevelVictory = 3;
+    private int secondLevelVictory = 5;
+    private int thridLevelVictory = 8;
+
+    private int firstLevelLoss = -1;
+    private int secondLevelLoss = -2;
+    private int thridLevelLoss = -3;
 
     public Jaken(Context context, int level) {
         this.context = context;
@@ -108,8 +118,8 @@ public class Jaken {
         int iaPlay;
 
         iaPlay = getIaChoose();
-        System.out.println("ia :" + iaPlay);
-        System.out.println("joueur :" + choose);
+//        System.out.println("ia :" + iaPlay);
+//        System.out.println("joueur :" + choose);
         this.iaTurn = iaPlay;
         if (iaPlay == choose) return 0;
         this.nManche++;
@@ -164,5 +174,41 @@ public class Jaken {
 
     public int getManches() {
         return this.nManche;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScores(boolean isVictory) {
+        if (level == 1) {
+            if (isVictory) {
+                this.score += firstLevelVictory;
+                this.iaScore += Math.max(this.iaScore + firstLevelLoss, 0);
+            } else {
+                this.score += Math.max(this.iaScore + firstLevelLoss, 0);
+                this.iaScore += firstLevelVictory;
+            }
+        } else if (level == 2) {
+            if (isVictory) {
+                this.score += secondLevelVictory;
+                this.iaScore += Math.max(this.iaScore + secondLevelLoss, 0);
+            } else {
+                this.score += Math.max(this.iaScore + secondLevelLoss, 0);
+                this.iaScore += secondLevelVictory;
+            }
+        } else if (level == 3) {
+            if (isVictory) {
+                this.score += thridLevelVictory;
+                this.iaScore += Math.max(this.iaScore + thridLevelLoss, 0);
+            } else {
+                this.score += Math.max(this.iaScore + thridLevelLoss, 0);
+                this.iaScore += thridLevelVictory;
+            }
+        }
+    }
+
+    public int getIaScore() {
+        return iaScore;
     }
 }

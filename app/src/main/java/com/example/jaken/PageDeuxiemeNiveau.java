@@ -2,6 +2,7 @@ package com.example.jaken;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.ImageButton;
@@ -27,6 +28,11 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
         btnPuit = findViewById(R.id.btnPuit);
         btnFeuille = findViewById(R.id.btnFeuille2);
         textViewNumeroManche = findViewById(R.id.textViewNumeroManche2);
+
+        btnCiseaux.setBackgroundColor(getColor(R.color.white));
+        btnPierre.setBackgroundColor(getColor(R.color.white));
+        btnFeuille.setBackgroundColor(getColor(R.color.white));
+        btnPuit.setBackgroundColor(getColor(R.color.white));
 
         btnCiseaux.setOnClickListener(v-> {
             gestionTour(btnCiseaux, jaken.play(Signe.ciseaux.getValue()));
@@ -59,15 +65,19 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
 
     public void setNumeroManche() {
         int numManche = jaken.getManches();
+
+        if (numManche > 5) {
+            Intent intent = new Intent(PageDeuxiemeNiveau.this, PageRejouer.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
         textViewNumeroManche.setText(String.valueOf(numManche));
-
-        if (numManche < 6) return;
-
-        // cas de victoire
     }
 
     public void gestionTour(ImageButton btn, int value) {
         int iaColor;
+        System.out.println("test : " + value);
         switch (value) {
             case -1:
                 btn.setBackgroundColor(getColor(R.color.red));
@@ -97,7 +107,7 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
     }
 
     private void clearColors() {
-        new CountDownTimer(2000, 1000) {
+        new CountDownTimer(1000, 1000) {
             public void onTick(long millisUntilFinished) {}
 
             public void onFinish() {
@@ -105,8 +115,6 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
                 btnPierre.setBackgroundColor(getColor(R.color.white));
                 btnFeuille.setBackgroundColor(getColor(R.color.white));
                 btnPuit.setBackgroundColor(getColor(R.color.white));
-
-                System.out.println("fini");
             }
         }.start();
     }

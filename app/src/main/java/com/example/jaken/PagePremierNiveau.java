@@ -9,6 +9,8 @@ import android.os.CountDownTimer;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import javax.annotation.Nullable;
+
 public class PagePremierNiveau extends AppCompatActivity {
     ImageButton btnCiseaux;
     ImageButton btnFeuille;
@@ -23,11 +25,16 @@ public class PagePremierNiveau extends AppCompatActivity {
         setContentView(R.layout.activity_page_premier_niveau);
         jaken = new Jaken(getApplicationContext(), 1);
 
+
         btnCiseaux = findViewById(R.id.btnCiseaux);
         btnFeuille = findViewById(R.id.btnFeuille);
         btnPierre = findViewById(R.id.btnPierre);
         textViewNumeroManche = findViewById(R.id.textViewNumeroManche);
         textViewTour = findViewById(R.id.textViewTour);
+
+        btnCiseaux.setBackgroundColor(getColor(R.color.white));
+        btnPierre.setBackgroundColor(getColor(R.color.white));
+        btnFeuille.setBackgroundColor(getColor(R.color.white));
 
         btnCiseaux.setOnClickListener(v-> {
             gestionTour(btnCiseaux, jaken.play(Signe.ciseaux.getValue()));
@@ -53,15 +60,14 @@ public class PagePremierNiveau extends AppCompatActivity {
 
     public void setNumeroManche() {
         int numManche = jaken.getManches();
+
+        if (numManche > 5) {
+            Intent intent = new Intent(PagePremierNiveau.this, PageRejouer.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
         textViewNumeroManche.setText(String.valueOf(numManche));
-
-        if (numManche < 5) return;
-
-        Intent intent = new Intent(PagePremierNiveau.this, PageRejouer.class);
-        startActivity(intent);
-        finish();
-
-        // cas de victoire
     }
 
     public void gestionTour(ImageButton btn, int value) {
@@ -70,6 +76,7 @@ public class PagePremierNiveau extends AppCompatActivity {
             case -1:
                 btn.setBackgroundColor(getColor(R.color.red));
                 iaColor = getColor(R.color.green);
+                jaken.setScores(false);
                 break;
             case 0:
                 btn.setBackgroundColor(getColor(R.color.black));
@@ -78,6 +85,7 @@ public class PagePremierNiveau extends AppCompatActivity {
             case 1:
                 btn.setBackgroundColor(getColor(R.color.green));
                 iaColor = getColor(R.color.red);
+                jaken.setScores(true);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + value);
@@ -102,5 +110,9 @@ public class PagePremierNiveau extends AppCompatActivity {
                     btnFeuille.setBackgroundColor(getColor(R.color.white));
                 }
             }.start();
+    }
+
+    private void setTextView() {
+
     }
 }

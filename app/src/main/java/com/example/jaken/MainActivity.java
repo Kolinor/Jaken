@@ -11,6 +11,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class MainActivity extends AppCompatActivity {
     Button btnConnexion;
     Button btnInscription;
+    Button btnDebug;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnConnexion = findViewById(R.id.btnConnexion);
         btnInscription = findViewById(R.id.btnInscription);
+        btnDebug = findViewById(R.id.btnDebug);
 
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -36,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         btnInscription.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, PageInscription.class);
             startActivity(intent);
+        });
+
+        btnDebug.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, PageModeSoloMulti.class));
         });
     }
 }
