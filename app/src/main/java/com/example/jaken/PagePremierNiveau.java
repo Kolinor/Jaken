@@ -63,17 +63,14 @@ public class PagePremierNiveau extends AppCompatActivity {
         int iaColor;
         switch (value) {
             case -1:
-                System.out.println("défaite");
                 btn.setBackgroundColor(getColor(R.color.red));
                 iaColor = getColor(R.color.green);
                 break;
             case 0:
-                System.out.println("égalité");
                 btn.setBackgroundColor(getColor(R.color.black));
                 iaColor = getColor(R.color.black);
                 break;
             case 1:
-                System.out.println("victoire");
                 btn.setBackgroundColor(getColor(R.color.green));
                 iaColor = getColor(R.color.red);
                 break;

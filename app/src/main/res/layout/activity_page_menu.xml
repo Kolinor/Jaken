@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.154" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnNiveau2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="292dp"

@@ -1,20 +1,20 @@
 package com.example.jaken;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-
-import androidx.annotation.Nullable;
-import androidx.core.content.res.ResourcesCompat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 enum Signe {
     ciseaux(0),
     pierre(1),
-    feuille(2);
+    feuille(2),
+    puit(3),
+    eau(4),
+    air(5),
+    eponge(6),
+    feu(7);
 
     private final int value;
     ArrayList<Integer> weakness;
@@ -28,13 +28,44 @@ enum Signe {
 
         switch (value) {
             case 0:
-                weakness.addAll(Arrays.asList(Signe.pierre.getValue()));
+                weakness.addAll(Arrays.asList(Signe.pierre.getValue(),
+                        Signe.puit.getValue(),
+                        Signe.feu.getValue(),
+                        Signe.eau.getValue()));
                 break;
             case 1:
-                weakness.addAll(Arrays.asList(Signe.feuille.getValue()));
+                weakness.addAll(Arrays.asList(Signe.feuille.getValue(),
+                        Signe.puit.getValue(),
+                        Signe.air.getValue(),
+                        Signe.eau.getValue()));
                 break;
             case 2:
-                weakness.addAll(Arrays.asList(Signe.ciseaux.getValue()));
+                weakness.addAll(Arrays.asList(Signe.ciseaux.getValue(),
+                        Signe.feu.getValue(),
+                        Signe.eponge.getValue()));
+                break;
+            case 3:
+                weakness.addAll(Arrays.asList(Signe.feuille.getValue()));
+                break;
+            case 4:
+                weakness.addAll(Arrays.asList(Signe.air.getValue(),
+                        Signe.feuille.getValue(),
+                        Signe.eponge.getValue()));
+                break;
+            case 5:
+                weakness.addAll(Arrays.asList(Signe.ciseaux.getValue(),
+                        Signe.eponge.getValue(),
+                        Signe.feuille.getValue()));
+                break;
+            case 6:
+                weakness.addAll(Arrays.asList(Signe.ciseaux.getValue(),
+                        Signe.feu.getValue(),
+                        Signe.pierre.getValue()));
+                break;
+            case 7:
+                weakness.addAll(Arrays.asList(Signe.pierre.getValue(),
+                        Signe.eau.getValue(),
+                        Signe.air.getValue()));
                 break;
         }
         return weakness;
@@ -65,20 +96,27 @@ public class Jaken {
         if (this.level == 1) {
             levelChoose.addAll(Arrays.asList(Signe.ciseaux.getValue(), Signe.feuille.getValue(), Signe.pierre.getValue()));
         } else if (this.level == 2) {
-
-        } else {
-
+            levelChoose.addAll(Arrays.asList(Signe.ciseaux.getValue(), Signe.feuille.getValue(), Signe.pierre.getValue(), Signe.puit.getValue()));
+        } else if (this.level == 3) {
+            levelChoose.addAll(Arrays.asList(Signe.pierre.getValue(),
+                    Signe.eau.getValue(),
+                    Signe.air.getValue(),
+                    Signe.feuille.getValue(),
+                    Signe.eponge.getValue(),
+                    Signe.ciseaux.getValue(),
+                    Signe.feu.getValue()));
         }
     }
 
     public int play(int choose) {
         int iaPlay;
 
-        if (level == 1) {
-            iaPlay = getIaChoose();
-            if (iaPlay == choose) return 0;
-            this.nManche++;
+        iaPlay = getIaChoose();
+        this.iaTurn = iaPlay;
+        if (iaPlay == choose) return 0;
+        this.nManche++;
 
+        if (level == 1) {
             if (Signe.ciseaux.getValue() == choose) {
                 return Signe.ciseaux.getWeakness().contains(iaPlay) ? -1 : 1;
             } else if (Signe.feuille.getValue() == choose) {
@@ -87,9 +125,31 @@ public class Jaken {
                 return Signe.pierre.getWeakness().contains(iaPlay) ? -1 : 1;
             }
         } else if (level == 2) {
-
-        } else {
-
+            if (Signe.ciseaux.getValue() == choose) {
+                return Signe.ciseaux.getWeakness().contains(iaPlay) ? -1 : 1;
+            } else if (Signe.feuille.getValue() == choose) {
+                return Signe.feuille.getWeakness().contains(iaPlay) ? -1 : 1;
+            } else if (Signe.pierre.getValue() == choose) {
+                return Signe.pierre.getWeakness().contains(iaPlay) ? -1 : 1;
+            } else if (Signe.puit.getValue() == choose) {
+                return Signe.puit.getWeakness().contains(iaPlay) ? -1 : 1;
+            }
+        } else if (level == 3) {
+            if (Signe.ciseaux.getValue() == choose) {
+                return Signe.ciseaux.getWeakness().contains(iaPlay) ? -1 : 1;
+            } else if (Signe.feuille.getValue() == choose) {
+                return Signe.feuille.getWeakness().contains(iaPlay) ? -1 : 1;
+            } else if (Signe.pierre.getValue() == choose) {
+                return Signe.pierre.getWeakness().contains(iaPlay) ? -1 : 1;
+            } else if (Signe.eau.getValue() == choose) {
+                return Signe.eau.getWeakness().contains(iaPlay) ? -1 : 1;
+            } else if (Signe.air.getValue() == choose) {
+                return Signe.air.getWeakness().contains(iaPlay) ? -1 : 1;
+            } else if (Signe.eponge.getValue() == choose) {
+                return Signe.eponge.getWeakness().contains(iaPlay) ? -1 : 1;
+            } else if (Signe.feu.getValue() == choose) {
+                return Signe.feu.getWeakness().contains(iaPlay) ? -1 : 1;
+            }
         }
 
         return 1;
