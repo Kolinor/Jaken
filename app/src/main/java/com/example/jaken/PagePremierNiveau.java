@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 
 public class PagePremierNiveau extends AppCompatActivity {
-    ImageButton btnImage1;
+    ImageButton btnCiseaux;
     Jaken jaken;
 
     @Override
@@ -15,10 +15,17 @@ public class PagePremierNiveau extends AppCompatActivity {
         setContentView(R.layout.activity_page_premier_niveau);
         jaken = new Jaken(getApplicationContext(), 1);
 
-        btnImage1 = findViewById(R.id.btnImage1);
+        btnCiseaux = findViewById(R.id.btnCiseaux);
 
-        btnImage1.setOnClickListener(v-> {
-            jaken.play(1);
+        btnCiseaux.setOnClickListener(v-> {
+            switch (jaken.play(Signe.ciseaux.getValue())) {
+                case -1:
+                    break;
+                case 0:
+                    break;
+                case 1:
+                    break;
+            }
         });
     }
 }
