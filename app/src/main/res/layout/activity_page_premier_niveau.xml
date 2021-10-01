@@ -22,7 +22,7 @@
         tools:visibility="visible" />
 
     <ImageButton
-        android:id="@+id/imagePapier"
+        android:id="@+id/btnFeuille"
         android:layout_width="118dp"
         android:layout_height="163dp"
         android:scaleType="fitCenter"
@@ -35,7 +35,7 @@
         app:srcCompat="@drawable/feuille" />
 
     <ImageButton
-        android:id="@+id/imagePierre"
+        android:id="@+id/btnPierre"
         android:layout_width="123dp"
         android:layout_height="160dp"
         android:scaleType="fitCenter"
@@ -48,7 +48,7 @@
         app:srcCompat="@drawable/pierre_image" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewTour"
         android:layout_width="198dp"
         android:layout_height="126dp"
         android:text="TextView"
@@ -72,5 +72,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.056" />
+
+    <TextView
+        android:id="@+id/textViewNumeroManche"
+        android:layout_width="73dp"
+        android:layout_height="32dp"
+        android:text="0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.055" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
