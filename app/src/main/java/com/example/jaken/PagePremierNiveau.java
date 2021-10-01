@@ -95,8 +95,6 @@ public class PagePremierNiveau extends AppCompatActivity {
                     btnCiseaux.setBackgroundColor(getColor(R.color.white));
                     btnPierre.setBackgroundColor(getColor(R.color.white));
                     btnFeuille.setBackgroundColor(getColor(R.color.white));
-
-                    System.out.println("fini");
                 }
             }.start();
     }
