@@ -84,10 +84,6 @@ public class Jaken {
     private Context context;
     private int iaTurn;
 
-    public void test() {
-        System.out.println(Signe.ciseaux);
-    }
-
     public Jaken(Context context, int level) {
         this.context = context;
         this.level = level;
@@ -112,6 +108,8 @@ public class Jaken {
         int iaPlay;
 
         iaPlay = getIaChoose();
+        System.out.println("ia :" + iaPlay);
+        System.out.println("joueur :" + choose);
         this.iaTurn = iaPlay;
         if (iaPlay == choose) return 0;
         this.nManche++;

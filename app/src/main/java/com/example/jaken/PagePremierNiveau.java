@@ -55,13 +55,10 @@ public class PagePremierNiveau extends AppCompatActivity {
         int numManche = jaken.getManches();
         textViewNumeroManche.setText(String.valueOf(numManche));
 
-        if (numManche < 6) {
+        if (numManche < 5) return;
 
-            Intent intent = new Intent(PagePremierNiveau.this, PageRejouer.class);
-            startActivity(intent);
-        }
-
-        return;
+        Intent intent = new Intent(PagePremierNiveau.this, PageRejouer.class);
+        startActivity(intent);
 
         // cas de victoire
     }
@@ -95,7 +92,7 @@ public class PagePremierNiveau extends AppCompatActivity {
     }
 
     private void clearColors() {
-        new CountDownTimer(2000, 1000) {
+        new CountDownTimer(1500, 1000) {
                 public void onTick(long millisUntilFinished) {}
 
                 public void onFinish() {
