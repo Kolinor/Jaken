@@ -17,6 +17,7 @@ public class PagePremierNiveau extends AppCompatActivity {
     ImageButton btnPierre;
     TextView textViewNumeroManche;
     TextView textViewTour;
+    TextView textViewScores;
     Jaken jaken;
 
     @Override
@@ -31,6 +32,7 @@ public class PagePremierNiveau extends AppCompatActivity {
         btnPierre = findViewById(R.id.btnPierre);
         textViewNumeroManche = findViewById(R.id.textViewNumeroManche);
         textViewTour = findViewById(R.id.textViewTour);
+        textViewScores = findViewById(R.id.textViewScores);
 
         btnCiseaux.setBackgroundColor(getColor(R.color.white));
         btnPierre.setBackgroundColor(getColor(R.color.white));
@@ -98,6 +100,10 @@ public class PagePremierNiveau extends AppCompatActivity {
         } else if (jaken.getIaTurn() == Signe.ciseaux.getValue()) {
             btnCiseaux.setBackgroundColor(iaColor);
         }
+        String text = jaken.getScore() + " / " + jaken.getIaScore();
+
+        textViewScores.setText(text);
+
     }
 
     private void clearColors() {

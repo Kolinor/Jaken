@@ -184,25 +184,25 @@ public class Jaken {
         if (level == 1) {
             if (isVictory) {
                 this.score += firstLevelVictory;
-                this.iaScore += Math.max(this.iaScore + firstLevelLoss, 0);
+                this.iaScore = Math.max(this.iaScore + firstLevelLoss, 0);
             } else {
-                this.score += Math.max(this.iaScore + firstLevelLoss, 0);
+                this.score = Math.max(this.iaScore + firstLevelLoss, 0);
                 this.iaScore += firstLevelVictory;
             }
         } else if (level == 2) {
             if (isVictory) {
                 this.score += secondLevelVictory;
-                this.iaScore += Math.max(this.iaScore + secondLevelLoss, 0);
+                this.iaScore = Math.max(this.iaScore + secondLevelLoss, 0);
             } else {
-                this.score += Math.max(this.iaScore + secondLevelLoss, 0);
+                this.score = Math.max(this.iaScore + secondLevelLoss, 0);
                 this.iaScore += secondLevelVictory;
             }
         } else if (level == 3) {
             if (isVictory) {
                 this.score += thridLevelVictory;
-                this.iaScore += Math.max(this.iaScore + thridLevelLoss, 0);
+                this.iaScore = Math.max(this.iaScore + thridLevelLoss, 0);
             } else {
-                this.score += Math.max(this.iaScore + thridLevelLoss, 0);
+                this.score = Math.max(this.iaScore + thridLevelLoss, 0);
                 this.iaScore += thridLevelVictory;
             }
         }

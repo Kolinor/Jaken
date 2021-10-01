@@ -14,6 +14,7 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
     ImageButton btnPuit;
     ImageButton btnFeuille;
     TextView textViewNumeroManche;
+    TextView textViewScores;
 
     Jaken jaken;
 
@@ -28,6 +29,7 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
         btnPuit = findViewById(R.id.btnPuit);
         btnFeuille = findViewById(R.id.btnFeuille2);
         textViewNumeroManche = findViewById(R.id.textViewNumeroManche2);
+        textViewScores = findViewById(R.id.textViewScores4);
 
         btnCiseaux.setBackgroundColor(getColor(R.color.white));
         btnPierre.setBackgroundColor(getColor(R.color.white));
@@ -82,6 +84,7 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
             case -1:
                 btn.setBackgroundColor(getColor(R.color.red));
                 iaColor = getColor(R.color.green);
+                jaken.setScores(false);
                 break;
             case 0:
                 btn.setBackgroundColor(getColor(R.color.black));
@@ -90,6 +93,7 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
             case 1:
                 btn.setBackgroundColor(getColor(R.color.green));
                 iaColor = getColor(R.color.red);
+                jaken.setScores(true);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + value);
@@ -104,6 +108,10 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
         } else if (jaken.getIaTurn() == Signe.puit.getValue()) {
             btnPuit.setBackgroundColor(iaColor);
         }
+
+        String text = jaken.getScore() + " / " + jaken.getIaScore();
+
+        textViewScores.setText(text);
     }
 
     private void clearColors() {
