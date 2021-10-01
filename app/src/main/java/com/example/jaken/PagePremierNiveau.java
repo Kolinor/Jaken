@@ -2,6 +2,7 @@ package com.example.jaken;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -54,7 +55,13 @@ public class PagePremierNiveau extends AppCompatActivity {
         int numManche = jaken.getManches();
         textViewNumeroManche.setText(String.valueOf(numManche));
 
-        if (numManche < 6) return;
+        if (numManche < 6) {
+
+            Intent intent = new Intent(PagePremierNiveau.this, PageRejouer.class);
+            startActivity(intent);
+        }
+
+        return;
 
         // cas de victoire
     }

@@ -6,4 +6,66 @@
     android:layout_height="match_parent"
     tools:context=".pageTroisiemeNiveau">
 
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="102dp"
+        android:layout_height="109dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/air"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="158dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="120dp"
+        android:layout_height="111dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/fire"
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="148dp"
+        android:layout_height="134dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/paper"
+        tools:layout_editor_absoluteX="261dp"
+        tools:layout_editor_absoluteY="175dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="129dp"
+        android:layout_height="123dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/scissors"
+        tools:layout_editor_absoluteX="261dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="152dp"
+        android:layout_height="132dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/rock"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="327dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton10"
+        android:layout_width="121dp"
+        android:layout_height="159dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/water"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton11"
+        android:layout_width="125dp"
+        android:layout_height="128dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/sponge"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="223dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

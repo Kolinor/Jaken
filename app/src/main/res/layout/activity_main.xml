@@ -39,14 +39,14 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="295dp"
-        android:layout_height="291dp"
+        android:layout_width="327dp"
+        android:layout_height="333dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
-        app:srcCompat="@drawable/jaken_welcome_image" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/jaken" />
 
     <TextView
         android:id="@+id/textViewBienvenue"
