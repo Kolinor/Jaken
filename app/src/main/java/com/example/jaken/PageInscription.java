@@ -13,6 +13,9 @@ import android.widget.DatePicker;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -29,19 +32,21 @@ public class PageInscription extends AppCompatActivity {
     EditText editTextPassword;
     FirebaseFirestore db;
 
+    private FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_inscription);
 
         db = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
 
         btnValider = findViewById(R.id.btnValider);
         editTextPrenom = findViewById(R.id.editTextPrenom);
         editTextNom = findViewById(R.id.editTextNom);
         editTextEmailAddress = findViewById(R.id.editTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextPassword);
-//        editTextDateNaissance = findViewById(R.id.editTextDateNaissance);
 
         btnValider.setOnClickListener(v -> {
             Map<String, Object> joueur = new HashMap<>();
@@ -49,56 +54,29 @@ public class PageInscription extends AppCompatActivity {
             CharSequence nom = editTextNom.getText();
             CharSequence email = editTextEmailAddress.getText();
             CharSequence password = editTextPassword.getText();
-//            Date dateNaissance =
 
+            auth.createUserWithEmailAndPassword(email.toString(), password.toString())
+                    .addOnCompleteListener(PageInscription.this, new OnCompleteListener<AuthResult>() {
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (!task.isSuccessful()) {
+                                System.err.println(task.getException().toString());
+                            }
+                            else {
+                                System.out.println("User bien creer");
+                                joueur.put("email", email.toString());
+                                joueur.put("nom", nom.toString());
+                                joueur.put("prenom", prenom.toString());
 
-            joueur.put("email", email.toString());
-            joueur.put("password", password.toString());
+                                FirebaseUser firebaseUser = auth.getCurrentUser();
+                                db.collection("Joueurs")
+                                        .document(firebaseUser.getUid())
+                                        .set(joueur);
 
-            db.collection("Joueurs")
-                    .whereEqualTo("email", email.toString())
-                    .whereEqualTo("password", email.toString())
-                    .get()
-                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()) {
-                                if (task.getResult().size() > 1) {
-
-                                }
-                            } else {
-                                System.err.println("Error getting documents: " + task.getException());
+                                startActivity(new Intent(PageInscription.this, PageModeSoloMulti.class));
+                                finish();
                             }
                         }
                     });
-
-            db.collection("Joueurs")
-                    .add(joueur)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            System.out.println("DocumentSnapshot added with ID: " + documentReference.getId());
-                        }
-                    });
         });
-    }
-
-    private boolean isIdentifiantExist(CharSequence email, CharSequence password) {
-        final boolean[] exist = new boolean[1];
-        db.collection("Joueurs")
-                .whereEqualTo("email", email.toString())
-                .whereEqualTo("password", email.toString())
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                           exist[0] = task.getResult().size() <= 1;
-                        } else {
-                            System.err.println("Error getting documents: " + task.getException());
-                        }
-                    }
-                });
-        return exist[0];
     }
 }
