@@ -2,6 +2,7 @@ package com.example.jaken;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.ImageButton;
@@ -59,19 +60,33 @@ public class PagePremierNiveau extends AppCompatActivity {
     }
 
     public void gestionTour(ImageButton btn, int value) {
+        int iaColor;
         switch (value) {
             case -1:
                 System.out.println("défaite");
                 btn.setBackgroundColor(getColor(R.color.red));
+                iaColor = getColor(R.color.green);
                 break;
             case 0:
                 System.out.println("égalité");
                 btn.setBackgroundColor(getColor(R.color.black));
+                iaColor = getColor(R.color.black);
                 break;
             case 1:
                 System.out.println("victoire");
                 btn.setBackgroundColor(getColor(R.color.green));
+                iaColor = getColor(R.color.red);
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + value);
+        }
+
+        if (jaken.getIaTurn() == Signe.feuille.getValue()) {
+            btnFeuille.setBackgroundColor(iaColor);
+        } else if (jaken.getIaTurn() == Signe.pierre.getValue()) {
+            btnPierre.setBackgroundColor(iaColor);
+        } else if (jaken.getIaTurn() == Signe.ciseaux.getValue()) {
+            btnCiseaux.setBackgroundColor(iaColor);
         }
     }
 
