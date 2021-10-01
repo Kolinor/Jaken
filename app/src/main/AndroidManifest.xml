@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jaken">
         <activity
+            android:name=".pageTroisiemeNiveau"
+            android:exported="true" />
+        <activity
+            android:name=".PageDeuxiemeNiveau"
+            android:exported="true" />
+        <activity
             android:name=".PagePremierNiveau"
             android:exported="true" />
         <activity
