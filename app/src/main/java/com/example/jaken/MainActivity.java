@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, PageConnexion.class);
 //            intent.putExtras(b);
             startActivity(intent);
+
+            System.out.println(getPackageName());
         });
 
         btnInscription.setOnClickListener(v -> {
