@@ -10,10 +10,11 @@ import android.widget.ImageButton;
 public class pageTroisiemeNiveau extends AppCompatActivity {
     ImageButton btnCiseaux;
     ImageButton btnFeuille;
-    ImageButton btnPapier;
+    ImageButton btnPierre;
     ImageButton btnFeu;
     ImageButton btnAir;
     ImageButton btnEau;
+    ImageButton btnEponge;
     Jaken jaken;
 
     @Override
@@ -22,15 +23,62 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
         setContentView(R.layout.activity_page_troisieme_niveau);
         jaken = new Jaken(getApplicationContext(), 3);
 
-        btnCiseaux = findViewById(R.id.imageButton5);
-        btnPapier = findViewById(R.id.imageButton6);
-        btnFeuille = findViewById(R.id.imageButton7);
-        btnFeuille = findViewById(R.id.imageButton9);
-        btnFeu = findViewById(R.id.imageButton10);
-        btnAir = findViewById(R.id.imageButton11);
-        btnEau = findViewById(R.id.imageButton8);
+        btnCiseaux = findViewById(R.id.btnCiseaux1);
+        btnPierre = findViewById(R.id.btnPierre1);
+        btnFeuille = findViewById(R.id.btnFeuille1);
+        btnEponge = findViewById(R.id.btnEponge);
+        btnFeu = findViewById(R.id.btnEau);
+        btnAir = findViewById(R.id.btnAir);
+        btnEau = findViewById(R.id.btnEau);
 
+        btnCiseaux.setOnClickListener(v-> {
+            gestionTour(btnCiseaux, jaken.play(Signe.ciseaux.getValue()));
 
+            setNumeroManche();
+            clearColors();
+        });
+
+        btnPierre.setOnClickListener(v-> {
+            gestionTour(btnPierre, jaken.play(Signe.pierre.getValue()));
+
+            setNumeroManche();
+            clearColors();
+        });
+
+        btnFeuille.setOnClickListener(v-> {
+            gestionTour(btnFeuille, jaken.play(Signe.feuille.getValue()));
+
+            setNumeroManche();
+            clearColors();
+        });
+
+        btnEponge.setOnClickListener(v-> {
+            gestionTour(btnEponge, jaken.play(Signe.eponge.getValue()));
+
+            setNumeroManche();
+            clearColors();
+        });
+
+        btnFeu.setOnClickListener(v-> {
+            gestionTour(btnFeu, jaken.play(Signe.feu.getValue()));
+
+            setNumeroManche();
+            clearColors();
+        });
+
+        btnAir.setOnClickListener(v-> {
+            gestionTour(btnAir, jaken.play(Signe.air.getValue()));
+
+            setNumeroManche();
+            clearColors();
+        });
+
+        btnEau.setOnClickListener(v-> {
+            gestionTour(btnEau, jaken.play(Signe.eau.getValue()));
+
+            setNumeroManche();
+            clearColors();
+        });
     }
 
     public void setNumeroManche() {
@@ -67,16 +115,22 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
                 throw new IllegalStateException("Unexpected value: " + value);
         }
 
-//        if (jaken.getIaTurn() == Signe.feuille.getValue()) {
-//            btnFeuille.setBackgroundColor(iaColor);
-//        } else if (jaken.getIaTurn() == Signe.pierre.getValue()) {
-//            btnPierre.setBackgroundColor(iaColor);
-//        } else if (jaken.getIaTurn() == Signe.ciseaux.getValue()) {
-//            btnCiseaux.setBackgroundColor(iaColor);
-//        } else if (jaken.getIaTurn() == Signe.puit.getValue()) {
-//            btnPuit.setBackgroundColor(iaColor);
-//        }
-//
+        if (jaken.getIaTurn() == Signe.feuille.getValue()) {
+            btnFeuille.setBackgroundColor(iaColor);
+        } else if (jaken.getIaTurn() == Signe.pierre.getValue()) {
+            btnPierre.setBackgroundColor(iaColor);
+        } else if (jaken.getIaTurn() == Signe.ciseaux.getValue()) {
+            btnCiseaux.setBackgroundColor(iaColor);
+        } else if (jaken.getIaTurn() == Signe.feu.getValue()) {
+            btnFeu.setBackgroundColor(iaColor);
+        } else if (jaken.getIaTurn() == Signe.eau.getValue()) {
+            btnEau.setBackgroundColor(iaColor);
+        } else if (jaken.getIaTurn() == Signe.air.getValue()) {
+            btnAir.setBackgroundColor(iaColor);
+        } else if (jaken.getIaTurn() == Signe.eponge.getValue()) {
+            btnEponge.setBackgroundColor(iaColor);
+        }
+
 //        String text = jaken.getScore() + " / " + jaken.getIaScore();
 //
 //        textViewScores.setText(text);
@@ -92,7 +146,8 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
                 btnEau.setBackgroundColor(getColor(R.color.white));
                 btnCiseaux.setBackgroundColor(getColor(R.color.white));
                 btnFeuille.setBackgroundColor(getColor(R.color.white));
-                btnPapier.setBackgroundColor(getColor(R.color.white));
+                btnPierre.setBackgroundColor(getColor(R.color.white));
+                btnEponge.setBackgroundColor(getColor(R.color.white));
             }
         }.start();
     }
