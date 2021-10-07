@@ -85,7 +85,11 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
         int numManche = jaken.getManches();
 
         if (numManche > 5) {
+            Bundle b = new Bundle();
+            b.putInt("level", 3);
+            b.putBoolean("isVictory", jaken.isVictoire());
             Intent intent = new Intent(pageTroisiemeNiveau.this, PageRejouer.class);
+            intent.putExtras(b);
             startActivity(intent);
             finish();
             return;

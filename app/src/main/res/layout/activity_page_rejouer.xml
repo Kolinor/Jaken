@@ -7,19 +7,18 @@
     tools:context=".PageRejouer">
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="61dp"
-        android:layout_height="16dp"
-        android:text="Gagner ou perdu ; votre score "
+        android:id="@+id/textViewInformation"
+        android:layout_width="180dp"
+        android:layout_height="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.155" />
+        app:layout_constraintVertical_bias="0.167" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRejouer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="REJOUER"
@@ -31,7 +30,7 @@
         app:layout_constraintVertical_bias="0.711" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnChangerNiveau"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CHANGER DE NIVEAU"

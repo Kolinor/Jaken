@@ -211,4 +211,8 @@ public class Jaken {
     public int getIaScore() {
         return iaScore;
     }
+
+    public boolean isVictoire () {
+        return this.score > this.iaScore;
+    }
 }
