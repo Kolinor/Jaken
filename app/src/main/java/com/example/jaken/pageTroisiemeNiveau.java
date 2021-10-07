@@ -31,6 +31,15 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
         btnAir = findViewById(R.id.imageButton);
         btnEau = findViewById(R.id.imageButton7);
 
+
+        btnAir.setBackgroundColor(getColor(R.color.white));
+        btnFeu.setBackgroundColor(getColor(R.color.white));
+        btnEau.setBackgroundColor(getColor(R.color.white));
+        btnCiseaux.setBackgroundColor(getColor(R.color.white));
+        btnEponge.setBackgroundColor(getColor(R.color.white));
+        btnPierre.setBackgroundColor(getColor(R.color.white));
+        btnFeuille.setBackgroundColor(getColor(R.color.white));
+
         btnCiseaux.setOnClickListener(v-> {
             gestionTour(btnCiseaux, jaken.play(Signe.ciseaux.getValue()));
 
@@ -151,7 +160,7 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
                 btnCiseaux.setBackgroundColor(getColor(R.color.white));
                 btnEponge.setBackgroundColor(getColor(R.color.white));
                 btnPierre.setBackgroundColor(getColor(R.color.white));
-                btnEponge.setBackgroundColor(getColor(R.color.white));
+                btnFeuille.setBackgroundColor(getColor(R.color.white));
             }
         }.start();
     }
