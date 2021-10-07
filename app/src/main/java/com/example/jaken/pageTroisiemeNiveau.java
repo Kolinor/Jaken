@@ -18,6 +18,7 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
     ImageButton btnEau;
     TextView textViewScores;
     TextView textViewNumeroManche;
+    ImageButton btnRegle;
     Jaken jaken;
 
     @Override
@@ -35,15 +36,16 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
         btnEau = findViewById(R.id.imageButton7);
         textViewScores = findViewById(R.id.textViewScores6);
         textViewNumeroManche = findViewById(R.id.textViewNumeroManche3);
+        btnRegle = findViewById(R.id.btnRegle2);
 
 
-        btnAir.setBackgroundColor(getColor(R.color.white));
-        btnFeu.setBackgroundColor(getColor(R.color.white));
-        btnEau.setBackgroundColor(getColor(R.color.white));
-        btnCiseaux.setBackgroundColor(getColor(R.color.white));
-        btnEponge.setBackgroundColor(getColor(R.color.white));
-        btnPierre.setBackgroundColor(getColor(R.color.white));
-        btnFeuille.setBackgroundColor(getColor(R.color.white));
+//        btnAir.setBackgroundColor(getColor(R.color.white));
+//        btnFeu.setBackgroundColor(getColor(R.color.white));
+//        btnEau.setBackgroundColor(getColor(R.color.white));
+//        btnCiseaux.setBackgroundColor(getColor(R.color.white));
+//        btnEponge.setBackgroundColor(getColor(R.color.white));
+//        btnPierre.setBackgroundColor(getColor(R.color.white));
+//        btnFeuille.setBackgroundColor(getColor(R.color.white));
 
         btnCiseaux.setOnClickListener(v-> {
             gestionTour(btnCiseaux, jaken.play(Signe.ciseaux.getValue()));
@@ -93,6 +95,14 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
             setNumeroManche();
             clearColors();
         });
+
+        btnRegle.setOnClickListener(v-> {
+            Intent intent = new Intent(pageTroisiemeNiveau.this, PageRegles.class);
+            Bundle b = new Bundle();
+            b.putInt("level", 3);
+            intent.putExtras(b);
+            startActivity(intent);
+        });
     }
 
     public void setNumeroManche() {
@@ -101,7 +111,8 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
         if (numManche > 5) {
             Bundle b = new Bundle();
             b.putInt("level", 3);
-            b.putBoolean("isVictory", jaken.isVictoire());
+            b.putInt("score", jaken.getScore());
+            b.putInt("victoire", jaken.victoire());
             Intent intent = new Intent(pageTroisiemeNiveau.this, PageRejouer.class);
             intent.putExtras(b);
             startActivity(intent);
@@ -113,7 +124,6 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
 
     public void gestionTour(ImageButton btn, int value) {
         int iaColor;
-        System.out.println("test : " + value);
         switch (value) {
             case -1:
                 btn.setBackgroundColor(getColor(R.color.red));

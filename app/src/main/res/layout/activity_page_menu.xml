@@ -15,7 +15,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6"
-        app:layout_constraintVertical_bias="0.154" />
+        app:layout_constraintVertical_bias="0.157" />
+
+    <Button
+        android:id="@+id/btnClassement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Classement"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        app:layout_constraintVertical_bias="0.755" />
+
+    <Button
+        android:id="@+id/btnNiveau3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/niveau_3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.61" />
 
     <Button
         android:id="@+id/btnNiveau2"
@@ -27,18 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6"
-        app:layout_constraintVertical_bias="0.921" />
-
-    <Button
-        android:id="@+id/btnNiveau3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/niveau_3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.607" />
+        app:layout_constraintVertical_bias="0.927" />
 
     <TextView
         android:id="@+id/textView"

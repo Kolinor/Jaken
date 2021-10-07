@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/projetJaken/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/projetJaken/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/projetJaken/app/src/main/res/layout/activity_page_classement.xml" value="0.25" />
         <entry key="..\:/projetJaken/app/src/main/res/layout/activity_page_connection.xml" value="0.1" />
         <entry key="..\:/projetJaken/app/src/main/res/layout/activity_page_connexion.xml" value="0.264" />
         <entry key="..\:/projetJaken/app/src/main/res/layout/activity_page_deuxieme_niveau.xml" value="0.25416666666666665" />
@@ -14,7 +15,8 @@
         <entry key="..\:/projetJaken/app/src/main/res/layout/activity_page_premier_niveau.xml" value="0.25416666666666665" />
         <entry key="..\:/projetJaken/app/src/main/res/layout/activity_page_rejouer.xml" value="0.25416666666666665" />
         <entry key="..\:/projetJaken/app/src/main/res/layout/activity_page_troisieme_niveau.xml" value="0.264" />
-        <entry key="..\:/projetJaken/app/src/main/res/layout/activity_pager_reglements.xml" value="0.25416666666666665" />
+        <entry key="..\:/projetJaken/app/src/main/res/layout/activity_pager_reglements.xml" value="0.33" />
+        <entry key="..\:/projetJaken/app/src/main/res/layout/activity_regles.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

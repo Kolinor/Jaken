@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jaken">
         <activity
-            android:name=".PageRejouer"
+            android:name=".PageClassement"
             android:exported="true" />
         <activity
-            android:name=".PagerReglements"
+            android:name=".PageRegles"
+            android:exported="true" />
+        <activity
+            android:name=".PageRejouer"
             android:exported="true" />
         <activity
             android:name=".ageRejouer"

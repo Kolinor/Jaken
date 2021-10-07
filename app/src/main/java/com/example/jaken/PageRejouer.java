@@ -1,11 +1,23 @@
 package com.example.jaken;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PageRejouer extends AppCompatActivity {
     Button btnChangerNiveau;
@@ -21,13 +33,18 @@ public class PageRejouer extends AppCompatActivity {
         btnRejouer = findViewById(R.id.btnRejouer);
         textViewInformation = findViewById(R.id.textViewInformation);
 
-        boolean isVictory = getIntent().getExtras().getBoolean("isVictory");
-        System.out.println(isVictory);
-        if (isVictory) {
-            textViewInformation.setText("Vous avez gagné");
+        int victoire = getIntent().getExtras().getInt("victoire");
+
+        if (victoire == 1) {
+            textViewInformation.setText(R.string.win);
+        } else if (victoire == -1) {
+            textViewInformation.setText(R.string.loose);
         } else {
-            textViewInformation.setText("Vous avez perdu");
+            textViewInformation.setText(R.string.equal);
         }
+
+        // envoyer score
+        sendScore(getIntent());
 
         btnChangerNiveau.setOnClickListener(v-> {
             Intent intent = new Intent(PageRejouer.this, PageMenu.class);
@@ -54,6 +71,37 @@ public class PageRejouer extends AppCompatActivity {
             }
             startActivity(intent);
             finish();
+        });
+    }
+
+    private void sendScore(Intent intent) {
+        String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        Map<String, Object> objScore = new HashMap<>();
+        int score = intent.getExtras().getInt("score");
+        int level = intent.getExtras().getInt("level");
+
+        DocumentReference docRef = db.collection("Joueurs").document(userUid);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        String prenomUtilisateur = document.get("prenom", String.class);
+
+                        objScore.put("uid", userUid);
+                        objScore.put("prenom", prenomUtilisateur);
+                        objScore.put("score", score);
+                        objScore.put("level", level);
+
+                        db.collection("Scores")
+                                .document()
+                                .set(objScore);
+                    }
+                }
+            }
         });
     }
 }

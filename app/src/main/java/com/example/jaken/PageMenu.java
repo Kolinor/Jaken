@@ -10,6 +10,7 @@ public class PageMenu extends AppCompatActivity {
     Button btnNiveau1;
     Button btnNiveau2;
     Button btnNiveau3;
+    Button btnClassement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,7 @@ public class PageMenu extends AppCompatActivity {
         btnNiveau1 = findViewById(R.id.btnNiveau1);
         btnNiveau2 = findViewById(R.id.btnNiveau2);
         btnNiveau3 = findViewById(R.id.btnNiveau3);
+        btnClassement = findViewById(R.id.btnClassement);
 
         btnNiveau1.setOnClickListener(v-> {
             Intent intent = new Intent(PageMenu.this, PagePremierNiveau.class);
@@ -32,6 +34,11 @@ public class PageMenu extends AppCompatActivity {
 
         btnNiveau3.setOnClickListener(v-> {
             Intent intent = new Intent(PageMenu.this, pageTroisiemeNiveau.class);
+            startActivity(intent);
+        });
+
+        btnClassement.setOnClickListener(v-> {
+            Intent intent = new Intent(PageMenu.this, PageClassement.class);
             startActivity(intent);
         });
     }

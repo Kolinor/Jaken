@@ -3,21 +3,18 @@ package com.example.jaken;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import javax.annotation.Nullable;
 
 public class PagePremierNiveau extends AppCompatActivity {
     ImageButton btnCiseaux;
     ImageButton btnFeuille;
     ImageButton btnPierre;
     TextView textViewNumeroManche;
-    TextView textViewTour;
     TextView textViewScores;
+    ImageButton btnRegle;
     Jaken jaken;
 
     @Override
@@ -31,8 +28,8 @@ public class PagePremierNiveau extends AppCompatActivity {
         btnFeuille = findViewById(R.id.btnFeuille);
         btnPierre = findViewById(R.id.btnPierre);
         textViewNumeroManche = findViewById(R.id.textViewNumeroManche);
-        textViewTour = findViewById(R.id.textViewTour);
         textViewScores = findViewById(R.id.textViewScores);
+        btnRegle = findViewById(R.id.btnRegle);
 
         btnCiseaux.setBackgroundColor(getColor(R.color.white));
         btnPierre.setBackgroundColor(getColor(R.color.white));
@@ -58,6 +55,14 @@ public class PagePremierNiveau extends AppCompatActivity {
             setNumeroManche();
             clearColors();
         });
+
+        btnRegle.setOnClickListener(v-> {
+            Intent intent = new Intent(PagePremierNiveau.this, PageRegles.class);
+            Bundle b = new Bundle();
+            b.putInt("level", 1);
+            intent.putExtras(b);
+            startActivity(intent);
+        });
     }
 
     public void setNumeroManche() {
@@ -66,7 +71,8 @@ public class PagePremierNiveau extends AppCompatActivity {
         if (numManche > 5) {
             Bundle b = new Bundle();
             b.putInt("level", 1);
-            b.putBoolean("isVictory", jaken.isVictoire());
+            b.putInt("score", jaken.getScore());
+            b.putInt("victoire", jaken.victoire());
             Intent intent = new Intent(PagePremierNiveau.this, PageRejouer.class);
             intent.putExtras(b);
             startActivity(intent);

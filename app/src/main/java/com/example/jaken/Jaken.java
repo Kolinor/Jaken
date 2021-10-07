@@ -116,10 +116,7 @@ public class Jaken {
 
     public int play(int choose) {
         int iaPlay;
-
         iaPlay = getIaChoose();
-        System.out.println("ia :" + iaPlay);
-//        System.out.println("joueur :" + choose);
         this.iaTurn = iaPlay;
         if (iaPlay == choose) return 0;
         this.nManche++;
@@ -218,7 +215,13 @@ public class Jaken {
         return iaScore;
     }
 
-    public boolean isVictoire () {
-        return this.score > this.iaScore;
+    public int victoire () {
+        if (this.score > this.iaScore) {
+            return 1;
+        } else if (this.score < this.iaScore) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }

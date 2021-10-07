@@ -15,6 +15,7 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
     ImageButton btnFeuille;
     TextView textViewNumeroManche;
     TextView textViewScores;
+    ImageButton btnRegle;
 
     Jaken jaken;
 
@@ -30,6 +31,7 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
         btnFeuille = findViewById(R.id.btnFeuille2);
         textViewNumeroManche = findViewById(R.id.textViewNumeroManche2);
         textViewScores = findViewById(R.id.textViewScores4);
+        btnRegle = findViewById(R.id.btnRegle3);
 
         btnCiseaux.setBackgroundColor(getColor(R.color.white));
         btnPierre.setBackgroundColor(getColor(R.color.white));
@@ -63,6 +65,14 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
             setNumeroManche();
             clearColors();
         });
+
+        btnRegle.setOnClickListener(v-> {
+            Intent intent = new Intent(PageDeuxiemeNiveau.this, PageRegles.class);
+            Bundle b = new Bundle();
+            b.putInt("level", 2);
+            intent.putExtras(b);
+            startActivity(intent);
+        });
     }
 
     public void setNumeroManche() {
@@ -71,7 +81,8 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
         if (numManche > 5) {
             Bundle b = new Bundle();
             b.putInt("level", 2);
-            b.putBoolean("isVictory", jaken.isVictoire());
+            b.putInt("score", jaken.getScore());
+            b.putInt("victoire", jaken.victoire());
             Intent intent = new Intent(PageDeuxiemeNiveau.this, PageRejouer.class);
             intent.putExtras(b);
             startActivity(intent);
@@ -119,7 +130,7 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
     }
 
     private void clearColors() {
-        new CountDownTimer(1000, 1000) {
+        new CountDownTimer(1000, 10) {
             public void onTick(long millisUntilFinished) {}
 
             public void onFinish() {
