@@ -9,8 +9,9 @@ import android.widget.ImageButton;
 
 public class pageTroisiemeNiveau extends AppCompatActivity {
     ImageButton btnCiseaux;
-    ImageButton btnFeuille;
+    ImageButton btnEponge;
     ImageButton btnPapier;
+    ImageButton btnPierre;
     ImageButton btnFeu;
     ImageButton btnAir;
     ImageButton btnEau;
@@ -22,13 +23,13 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
         setContentView(R.layout.activity_page_troisieme_niveau);
         jaken = new Jaken(getApplicationContext(), 3);
 
-        btnCiseaux = findViewById(R.id.imageButton5);
-        btnPapier = findViewById(R.id.imageButton6);
-        btnFeuille = findViewById(R.id.imageButton7);
-        btnFeuille = findViewById(R.id.imageButton9);
-        btnFeu = findViewById(R.id.imageButton10);
-        btnAir = findViewById(R.id.imageButton11);
-        btnEau = findViewById(R.id.imageButton8);
+        btnCiseaux = findViewById(R.id.imageButton6);
+        btnPapier = findViewById(R.id.imageButton3);
+        btnEponge = findViewById(R.id.imageButton4);
+        btnPierre = findViewById(R.id.imageButton5);
+        btnFeu = findViewById(R.id.imageButton2);
+        btnAir = findViewById(R.id.imageButton);
+        btnEau = findViewById(R.id.imageButton7);
 
 
     }
@@ -91,7 +92,7 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
                 btnFeu.setBackgroundColor(getColor(R.color.white));
                 btnEau.setBackgroundColor(getColor(R.color.white));
                 btnCiseaux.setBackgroundColor(getColor(R.color.white));
-                btnFeuille.setBackgroundColor(getColor(R.color.white));
+                btnEponge.setBackgroundColor(getColor(R.color.white));
                 btnPapier.setBackgroundColor(getColor(R.color.white));
             }
         }.start();
