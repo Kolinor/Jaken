@@ -170,13 +170,10 @@ public class Jaken {
     private int getIaChoose() {
         Random r = new Random();
         int iaChoose = r.nextInt(levelChoose.size());
-        if (this.level == 3) {
-            if (iaChoose == 3) {
-                do {
-                    iaChoose = r.nextInt(levelChoose.size());
-                } while(iaChoose == 3);
-            }
-
+        if (this.level == 3 && iaChoose == 3) {
+            do {
+                iaChoose = r.nextInt(levelChoose.size());
+            } while(iaChoose == 3);
         }
         return iaChoose;
     }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class pageTroisiemeNiveau extends AppCompatActivity {
     ImageButton btnCiseaux;
@@ -15,6 +16,8 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
     ImageButton btnFeu;
     ImageButton btnAir;
     ImageButton btnEau;
+    TextView textViewScores;
+    TextView textViewNumeroManche;
     Jaken jaken;
 
     @Override
@@ -30,6 +33,8 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
         btnFeu = findViewById(R.id.imageButton2);
         btnAir = findViewById(R.id.imageButton);
         btnEau = findViewById(R.id.imageButton7);
+        textViewScores = findViewById(R.id.textViewScores6);
+        textViewNumeroManche = findViewById(R.id.textViewNumeroManche3);
 
 
         btnAir.setBackgroundColor(getColor(R.color.white));
@@ -103,7 +108,7 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
             finish();
             return;
         }
-//        textViewNumeroManche.setText(String.valueOf(numManche));
+        textViewNumeroManche.setText(String.valueOf(numManche));
     }
 
     public void gestionTour(ImageButton btn, int value) {
@@ -144,9 +149,9 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
             btnEponge.setBackgroundColor(iaColor);
         }
 
-//        String text = jaken.getScore() + " / " + jaken.getIaScore();
-//
-//        textViewScores.setText(text);
+        String text = jaken.getScore() + " / " + jaken.getIaScore();
+
+        textViewScores.setText(text);
     }
 
     private void clearColors() {
