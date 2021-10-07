@@ -118,7 +118,7 @@ public class Jaken {
         int iaPlay;
 
         iaPlay = getIaChoose();
-//        System.out.println("ia :" + iaPlay);
+        System.out.println("ia :" + iaPlay);
 //        System.out.println("joueur :" + choose);
         this.iaTurn = iaPlay;
         if (iaPlay == choose) return 0;
@@ -169,7 +169,16 @@ public class Jaken {
 
     private int getIaChoose() {
         Random r = new Random();
-        return r.nextInt(levelChoose.size() + 1);
+        int iaChoose = r.nextInt(levelChoose.size());
+        if (this.level == 3) {
+            if (iaChoose == 3) {
+                do {
+                    iaChoose = r.nextInt(levelChoose.size());
+                } while(iaChoose == 3);
+            }
+
+        }
+        return iaChoose;
     }
 
     public int getManches() {
