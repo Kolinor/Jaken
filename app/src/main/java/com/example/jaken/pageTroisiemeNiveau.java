@@ -26,7 +26,7 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
         btnCiseaux = findViewById(R.id.imageButton6);
         btnPierre = findViewById(R.id.imageButton5);
         btnFeuille = findViewById(R.id.imageButton3);
-        btnEponge = findViewById(R.id.imageButton3);
+        btnEponge = findViewById(R.id.imageButton4);
         btnFeu = findViewById(R.id.imageButton2);
         btnAir = findViewById(R.id.imageButton);
         btnEau = findViewById(R.id.imageButton7);
