@@ -103,8 +103,8 @@ public class PageRejouer extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     long oldScore = ((long) document.get("score"));
-                    int point = 0;
-
+                    long point = 0;
+                System.out.println(level);
                     if (level == 1) {
                         if (victoire == 1) point = 3;
                         else point = -1;
@@ -117,11 +117,11 @@ public class PageRejouer extends AppCompatActivity {
                     }
 
                     if (victoire == 0) point = 0;
-                    Math.max(oldScore + point, 0);
+                    long b = Math.max(oldScore + point, 0);
 
                     db.collection("Joueurs")
                             .document(userUid)
-                            .update("score", score)
+                            .update("score", b)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
