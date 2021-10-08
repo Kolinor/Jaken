@@ -64,6 +64,27 @@ public class PageInscription extends AppCompatActivity {
             CharSequence dateNaissance = editTextDateNaissance.getText();
             CharSequence sexe;
 
+            if (prenom.length() == 0) {
+                Toast.makeText(getApplicationContext(), "Prenom est vide", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (nom.length() == 0) {
+                Toast.makeText(getApplicationContext(), "Nom est vide", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (dateNaissance.length() == 0) {
+                Toast.makeText(getApplicationContext(), "Date de naissance est vide", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (email.length() == 0) {
+                Toast.makeText(getApplicationContext(), "Email est vide", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (password.length() < 6) {
+                Toast.makeText(getApplicationContext(), "Le mot de passe est vide ou plus petit que 6 caractères", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             int radioButtonID = radioGrpSexe.getCheckedRadioButtonId();
             View radioButton = radioGrpSexe.findViewById(radioButtonID);
             int idx = radioGrpSexe.indexOfChild(radioButton);
