@@ -22,6 +22,7 @@ import java.util.Map;
 public class PageRejouer extends AppCompatActivity {
     Button btnChangerNiveau;
     Button btnRejouer;
+    TextView textViewScores;
     TextView textViewInformation;
 
     @Override
@@ -32,8 +33,14 @@ public class PageRejouer extends AppCompatActivity {
         btnChangerNiveau = findViewById(R.id.btnChangerNiveau);
         btnRejouer = findViewById(R.id.btnRejouer);
         textViewInformation = findViewById(R.id.textViewInformation);
+        textViewScores = findViewById(R.id.textViewScores7);
 
         int victoire = getIntent().getExtras().getInt("victoire");
+        int score = getIntent().getExtras().getInt("score");
+        int scoreIa = getIntent().getExtras().getInt("scoreIa");
+
+        String text = "Scores : " + score + " / " + scoreIa;
+        textViewScores.setText(text);
 
         if (victoire == 1) {
             textViewInformation.setText(R.string.win);

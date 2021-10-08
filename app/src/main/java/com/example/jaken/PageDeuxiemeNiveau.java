@@ -82,6 +82,7 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
             Bundle b = new Bundle();
             b.putInt("level", 2);
             b.putInt("score", jaken.getScore());
+            b.putInt("scoreIa", jaken.getIaScore());
             b.putInt("victoire", jaken.victoire());
             Intent intent = new Intent(PageDeuxiemeNiveau.this, PageRejouer.class);
             intent.putExtras(b);

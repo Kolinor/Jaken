@@ -7,6 +7,19 @@
     tools:context=".PageRejouer">
 
     <TextView
+        android:id="@+id/textViewScores7"
+        android:layout_width="208dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginBottom="380dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <TextView
         android:id="@+id/textViewInformation"
         android:layout_width="180dp"
         android:layout_height="18dp"
