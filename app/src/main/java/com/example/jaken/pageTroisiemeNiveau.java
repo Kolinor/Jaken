@@ -26,7 +26,6 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_troisieme_niveau);
         jaken = new Jaken(getApplicationContext(), 3);
-
         btnCiseaux = findViewById(R.id.imageButton6);
         btnPierre = findViewById(R.id.imageButton5);
         btnFeuille = findViewById(R.id.imageButton3);
@@ -39,13 +38,13 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
         btnRegle = findViewById(R.id.btnRegle2);
 
 
-//        btnAir.setBackgroundColor(getColor(R.color.white));
-//        btnFeu.setBackgroundColor(getColor(R.color.white));
-//        btnEau.setBackgroundColor(getColor(R.color.white));
-//        btnCiseaux.setBackgroundColor(getColor(R.color.white));
-//        btnEponge.setBackgroundColor(getColor(R.color.white));
-//        btnPierre.setBackgroundColor(getColor(R.color.white));
-//        btnFeuille.setBackgroundColor(getColor(R.color.white));
+        btnAir.setBackgroundColor(getColor(R.color.white));
+        btnFeu.setBackgroundColor(getColor(R.color.white));
+        btnEau.setBackgroundColor(getColor(R.color.white));
+        btnCiseaux.setBackgroundColor(getColor(R.color.white));
+        btnEponge.setBackgroundColor(getColor(R.color.white));
+        btnPierre.setBackgroundColor(getColor(R.color.white));
+        btnFeuille.setBackgroundColor(getColor(R.color.white));
 
         btnCiseaux.setOnClickListener(v-> {
             gestionTour(btnCiseaux, jaken.play(Signe.ciseaux.getValue()));
