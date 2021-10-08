@@ -104,7 +104,6 @@ public class PagePremierNiveau extends AppCompatActivity {
                 throw new IllegalStateException("Unexpected value: " + value);
         }
 
-        System.out.println(jaken.getIaTurn());
         if (jaken.getIaTurn() == Signe.feuille.getValue()) {
             btnFeuille.setBackgroundColor(iaColor);
         } else if (jaken.getIaTurn() == Signe.pierre.getValue()) {
@@ -115,7 +114,6 @@ public class PagePremierNiveau extends AppCompatActivity {
         String text = jaken.getScore() + " / " + jaken.getIaScore();
 
         textViewScores.setText(text);
-
     }
 
     private void clearColors() {

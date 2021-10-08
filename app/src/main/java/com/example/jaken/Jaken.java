@@ -189,7 +189,7 @@ public class Jaken {
                 this.score += firstLevelVictory;
                 this.iaScore = Math.max(this.iaScore + firstLevelLoss, 0);
             } else {
-                this.score = Math.max(this.iaScore + firstLevelLoss, 0);
+                this.score = Math.max(this.score + firstLevelLoss, 0);
                 this.iaScore += firstLevelVictory;
             }
         } else if (level == 2) {
@@ -197,7 +197,7 @@ public class Jaken {
                 this.score += secondLevelVictory;
                 this.iaScore = Math.max(this.iaScore + secondLevelLoss, 0);
             } else {
-                this.score = Math.max(this.iaScore + secondLevelLoss, 0);
+                this.score = Math.max(this.score + secondLevelLoss, 0);
                 this.iaScore += secondLevelVictory;
             }
         } else if (level == 3) {
@@ -205,10 +205,13 @@ public class Jaken {
                 this.score += thridLevelVictory;
                 this.iaScore = Math.max(this.iaScore + thridLevelLoss, 0);
             } else {
-                this.score = Math.max(this.iaScore + thridLevelLoss, 0);
+                this.score = Math.max(this.score + thridLevelLoss, 0);
                 this.iaScore += thridLevelVictory;
             }
         }
+
+//        System.out.println("IA SCORE : " + this.getIaScore());
+//        System.out.println("SCORE : " + this.getScore());
     }
 
     public int getIaScore() {
