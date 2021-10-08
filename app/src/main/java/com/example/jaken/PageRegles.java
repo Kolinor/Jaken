@@ -29,13 +29,13 @@ public class PageRegles extends AppCompatActivity {
 
         if (level == 1) {
 
-            textViewRegle.setText("- Le jeux de pierre bat les ciseaux (en les écrasants\n"+
+            textViewRegle.setText("- Le jeux de pierre bat les ciseaux (en les   écrasants\n"+
                     "- Le jeux de ciseaux bat la feuille (en la coupant)\n" + "- La feuille bat la pierre (en l'enveloppant)\n");
 
 
         } else if (level == 2) {
 
-            textViewRegle.setText("- Le jeux de pierre bat les ciseaux (en les écrasants)\n"  +
+            textViewRegle.setText("- Le jeux de pierre bat les ciseaux (en les   écrasants)\n"  +
                     "- Le jeux de ciseaux bat la feuille (en la coupant)\n" + "- La feuille bat la pierre (en l'enveloppant)\n" +
                     "- La feuille bat le puits (en le recouvrant)\n" +
                     "- Le puits bat le ciseau (qui tombe dans le puit)\n" +

@@ -19,9 +19,6 @@
             android:name=".PageRejouer"
             android:exported="true" />
         <activity
-            android:name=".ageRejouer"
-            android:exported="true" />
-        <activity
             android:name=".pageTroisiemeNiveau"
             android:exported="true" />
         <activity
