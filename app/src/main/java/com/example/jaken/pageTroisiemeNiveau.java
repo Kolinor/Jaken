@@ -38,13 +38,13 @@ public class pageTroisiemeNiveau extends AppCompatActivity {
         btnRegle = findViewById(R.id.btnRegle2);
 
 
-        btnAir.setBackgroundColor(getColor(R.color.white));
-        btnFeu.setBackgroundColor(getColor(R.color.white));
-        btnEau.setBackgroundColor(getColor(R.color.white));
-        btnCiseaux.setBackgroundColor(getColor(R.color.white));
-        btnEponge.setBackgroundColor(getColor(R.color.white));
-        btnPierre.setBackgroundColor(getColor(R.color.white));
-        btnFeuille.setBackgroundColor(getColor(R.color.white));
+//        btnAir.setBackgroundColor(getColor(R.color.white));
+//        btnFeu.setBackgroundColor(getColor(R.color.white));
+//        btnEau.setBackgroundColor(getColor(R.color.white));
+//        btnCiseaux.setBackgroundColor(getColor(R.color.white));
+//        btnEponge.setBackgroundColor(getColor(R.color.white));
+//        btnPierre.setBackgroundColor(getColor(R.color.white));
+//        btnFeuille.setBackgroundColor(getColor(R.color.white));
 
         btnCiseaux.setOnClickListener(v-> {
             gestionTour(btnCiseaux, jaken.play(Signe.ciseaux.getValue()));

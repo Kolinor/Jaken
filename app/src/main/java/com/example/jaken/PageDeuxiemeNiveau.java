@@ -32,11 +32,11 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
         textViewNumeroManche = findViewById(R.id.textViewNumeroManche2);
         textViewScores = findViewById(R.id.textViewScores4);
         btnRegle = findViewById(R.id.btnRegle3);
-
-        btnCiseaux.setBackgroundColor(getColor(R.color.white));
-        btnPierre.setBackgroundColor(getColor(R.color.white));
-        btnFeuille.setBackgroundColor(getColor(R.color.white));
-        btnPuit.setBackgroundColor(getColor(R.color.white));
+//
+//        btnCiseaux.setBackgroundColor(getColor(R.color.white));
+//        btnPierre.setBackgroundColor(getColor(R.color.white));
+//        btnFeuille.setBackgroundColor(getColor(R.color.white));
+//        btnPuit.setBackgroundColor(getColor(R.color.white));
 
         btnCiseaux.setOnClickListener(v-> {
             gestionTour(btnCiseaux, jaken.play(Signe.ciseaux.getValue()));
