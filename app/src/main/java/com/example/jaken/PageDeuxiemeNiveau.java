@@ -78,7 +78,7 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
     public void setNumeroManche() {
         int numManche = jaken.getManches();
 
-        if (numManche > 5) {
+        if (jaken.getScore() == 3 || jaken.getIaScore() == 3 || numManche > 5) {
             Bundle b = new Bundle();
             b.putInt("level", 2);
             b.putInt("score", jaken.getScore());
