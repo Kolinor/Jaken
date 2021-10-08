@@ -89,6 +89,7 @@ public class PageInscription extends AppCompatActivity {
                                 joueur.put("prenom", prenom.toString());
                                 joueur.put("sexe", sexe);
                                 joueur.put("dateNaissance", dateNaissance.toString());
+                                joueur.put("score", 0);
 
                                 FirebaseUser firebaseUser = auth.getCurrentUser();
                                 db.collection("Joueurs")

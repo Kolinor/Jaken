@@ -27,10 +27,8 @@ public class PageClassement extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         textViewClassement = findViewById(R.id.textViewClassement);
-       // textViewClassement2 = findViewById(R.id.textViewClassement3);
-        //textViewClassement3 = findViewById(R.id.textViewClassement4);
 
-        db.collection("Scores")
+        db.collection("Joueurs")
                 .orderBy("score", Query.Direction.DESCENDING)
                 .limit(15)
                 .get()
@@ -39,27 +37,12 @@ public class PageClassement extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             String text = "";
-                            String text1 = "";
-                            String text2 = "";
                             int i = 1;
-                            int y = 1;
-                            int x = 1;
                             for (DocumentSnapshot document : task.getResult()) {
-                                if (document.get("level").toString().equals("1")) {
-                                    text += i + " - " + document.get("prenom").toString() + " : " + document.get("score").toString() + "\n";
-                                    i += 1;
-                                } else if (document.get("level").toString().equals("2")) {
-                                    text1 += y + " - " + document.get("prenom").toString() + " : " + document.get("score").toString() + "\n";
-                                    y += 1;
-                                } else if (document.get("level").toString().equals("3")) {
-                                    text2 += x + " - " + document.get("prenom").toString() + " : " + document.get("score").toString() + "\n";
-                                    x += 1;
-                                }
-
+                                text += i + " - " + document.get("prenom").toString() + " : " + document.get("score").toString() + "\n";
+                                i += 1;
                             }
                             textViewClassement.setText(text);
-                            textViewClassement2.setText(text1);
-                            textViewClassement3.setText(text2);
                         } else {
                             Log.d("getDoc", "Error getting documents: ", task.getException());
                         }

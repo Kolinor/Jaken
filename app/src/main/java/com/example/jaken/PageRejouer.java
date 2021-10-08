@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -51,7 +53,7 @@ public class PageRejouer extends AppCompatActivity {
         }
 
         // envoyer score
-        sendScore(getIntent());
+        if (victoire != 0) sendScore(getIntent());
 
         btnChangerNiveau.setOnClickListener(v-> {
             Intent intent = new Intent(PageRejouer.this, PageMenu.class);
@@ -88,6 +90,7 @@ public class PageRejouer extends AppCompatActivity {
         Map<String, Object> objScore = new HashMap<>();
         int score = intent.getExtras().getInt("score");
         int level = intent.getExtras().getInt("level");
+        int victoire = intent.getExtras().getInt("victoire");
 
         DocumentReference docRef = db.collection("Joueurs").document(userUid);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -95,18 +98,30 @@ public class PageRejouer extends AppCompatActivity {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        String prenomUtilisateur = document.get("prenom", String.class);
+                    long oldScore = ((long) document.get("score"));
+                    int point = 0;
 
-                        objScore.put("uid", userUid);
-                        objScore.put("prenom", prenomUtilisateur);
-                        objScore.put("score", score);
-                        objScore.put("level", level);
-
-                        db.collection("Scores")
-                                .document()
-                                .set(objScore);
+                    if (level == 1) {
+                        if (victoire == 1) point = 3;
+                        else point = -1;
+                    } else if (level == 2) {
+                        if (victoire == 1) point = 5;
+                        else point = -2;
+                    } else {
+                        if (victoire == 1) point = 8;
+                        else point = -3;
                     }
+                    Math.max(oldScore + point, 0);
+
+                    db.collection("Joueurs")
+                            .document(userUid)
+                            .update("score", score)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d("updateScore", "DocumentSnapshot successfully updated!");
+                                }
+                            });
                 }
             }
         });
