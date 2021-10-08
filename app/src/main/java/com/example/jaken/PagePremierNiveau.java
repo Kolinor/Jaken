@@ -31,9 +31,9 @@ public class PagePremierNiveau extends AppCompatActivity {
         textViewScores = findViewById(R.id.textViewScores);
         btnRegle = findViewById(R.id.btnRegle);
 
-        btnCiseaux.setBackgroundColor(getColor(R.color.white));
-        btnPierre.setBackgroundColor(getColor(R.color.white));
-        btnFeuille.setBackgroundColor(getColor(R.color.white));
+//        btnCiseaux.setBackgroundColor(getColor(R.color.white));
+//        btnPierre.setBackgroundColor(getColor(R.color.white));
+//        btnFeuille.setBackgroundColor(getColor(R.color.white));
 
         btnCiseaux.setOnClickListener(v-> {
             gestionTour(btnCiseaux, jaken.play(Signe.ciseaux.getValue()));
