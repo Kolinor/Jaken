@@ -19,7 +19,7 @@
     <string name="solo">solo</string>
     <string name="mode_de_jeu">MODE DE JEU</string>
     <string name="niveau">NIVEAU</string>
-    <string name="win">Vous avez gagné</string>
-    <string name="loose">Vous avez perdu</string>
-    <string name="equal">Vous avez fait une égalité</string>
+    <string name="win">Vous avez gagné !</string>
+    <string name="loose">Vous avez perdu !</string>
+    <string name="equal">Vous avez fait une égalité !</string>
 </resources>
