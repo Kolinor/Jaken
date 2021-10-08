@@ -17,6 +17,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +28,7 @@ public class PageRejouer extends AppCompatActivity {
     Button btnRejouer;
     TextView textViewScores;
     TextView textViewInformation;
+    TextView textViewScores8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class PageRejouer extends AppCompatActivity {
         btnRejouer = findViewById(R.id.btnRejouer);
         textViewInformation = findViewById(R.id.textViewInformation);
         textViewScores = findViewById(R.id.textViewScores7);
+        textViewScores8 = findViewById(R.id.textViewScores8);
 
         int victoire = getIntent().getExtras().getInt("victoire");
         int score = getIntent().getExtras().getInt("score");
@@ -53,7 +57,7 @@ public class PageRejouer extends AppCompatActivity {
         }
 
         // envoyer score
-        if (victoire != 0) sendScore(getIntent());
+        sendScore(getIntent());
 
         btnChangerNiveau.setOnClickListener(v-> {
             Intent intent = new Intent(PageRejouer.this, PageMenu.class);
@@ -111,6 +115,8 @@ public class PageRejouer extends AppCompatActivity {
                         if (victoire == 1) point = 8;
                         else point = -3;
                     }
+
+                    if (victoire == 0) point = 0;
                     Math.max(oldScore + point, 0);
 
                     db.collection("Joueurs")
@@ -120,6 +126,22 @@ public class PageRejouer extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Log.d("updateScore", "DocumentSnapshot successfully updated!");
+
+                                    db.collection("Joueurs").document(FirebaseAuth.getInstance().getUid().toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                DocumentSnapshot document = task.getResult();
+                                                long score = (long)document.get("score");
+
+                                                String a = "Votre score : " + score;
+                                                textViewScores8.setText(a);
+                                            }
+                                        }
+                                    });
+
+
+
                                 }
                             });
                 }
