@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.DatePicker;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,10 +30,11 @@ public class PageInscription extends AppCompatActivity {
     Button btnValider;
     EditText editTextPrenom;
     EditText editTextNom;
-//    DatePicker editTextDateNaissance;
     EditText editTextEmailAddress;
     EditText editTextPassword;
+    EditText editTextDateNaissance;
     FirebaseFirestore db;
+    RadioGroup radioGrpSexe;
 
     private FirebaseAuth auth;
 
@@ -47,6 +51,8 @@ public class PageInscription extends AppCompatActivity {
         editTextNom = findViewById(R.id.editTextNom);
         editTextEmailAddress = findViewById(R.id.editTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextPassword);
+        radioGrpSexe = findViewById(R.id.radioGrpSexe);
+        editTextDateNaissance = findViewById(R.id.editTextDateNaissance);
 
         btnValider.setOnClickListener(v -> {
             Map<String, Object> joueur = new HashMap<>();
@@ -54,7 +60,22 @@ public class PageInscription extends AppCompatActivity {
             CharSequence nom = editTextNom.getText();
             CharSequence email = editTextEmailAddress.getText();
             CharSequence password = editTextPassword.getText();
+            CharSequence dateNaissance = editTextDateNaissance.getText();
+            CharSequence sexe;
 
+            int radioButtonID = radioGrpSexe.getCheckedRadioButtonId();
+            View radioButton = radioGrpSexe.findViewById(radioButtonID);
+            int idx = radioGrpSexe.indexOfChild(radioButton);
+            RadioButton r = (RadioButton) radioGrpSexe.getChildAt(idx);
+            String selectedtext = r.getText().toString();
+
+
+            if (selectedtext.equals("Femme")) {
+                sexe = "F";
+            } else {
+                sexe = "H";
+            }
+            System.out.println(dateNaissance);
             auth.createUserWithEmailAndPassword(email.toString(), password.toString())
                     .addOnCompleteListener(PageInscription.this, new OnCompleteListener<AuthResult>() {
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -66,6 +87,8 @@ public class PageInscription extends AppCompatActivity {
                                 joueur.put("email", email.toString());
                                 joueur.put("nom", nom.toString());
                                 joueur.put("prenom", prenom.toString());
+                                joueur.put("sexe", sexe);
+                                joueur.put("dateNaissance", dateNaissance.toString());
 
                                 FirebaseUser firebaseUser = auth.getCurrentUser();
                                 db.collection("Joueurs")

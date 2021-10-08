@@ -104,6 +104,7 @@
         app:layout_constraintGuide_percent="0.49878347" />
 
     <RadioGroup
+        android:id="@+id/radioGrpSexe"
         android:layout_width="172dp"
         android:layout_height="58dp"
         android:orientation="horizontal"
@@ -117,6 +118,7 @@
             android:id="@+id/radioButtonFemme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="@string/femme" />
 
         <RadioButton
@@ -132,6 +134,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Date de naissance"
         android:inputType="date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
