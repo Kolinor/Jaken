@@ -27,8 +27,8 @@ public class PageClassement extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         textViewClassement = findViewById(R.id.textViewClassement);
-        textViewClassement2 = findViewById(R.id.textViewClassement3);
-        textViewClassement3 = findViewById(R.id.textViewClassement4);
+       // textViewClassement2 = findViewById(R.id.textViewClassement3);
+        //textViewClassement3 = findViewById(R.id.textViewClassement4);
 
         db.collection("Scores")
                 .orderBy("score", Query.Direction.DESCENDING)

@@ -10,28 +10,13 @@
         android:id="@+id/textViewClassement"
         android:layout_width="119dp"
         android:layout_height="254dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textViewClassement3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.191"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewClassement4"
-        android:layout_width="119dp"
-        android:layout_height="254dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="322dp" />
-
-    <TextView
-        android:id="@+id/textViewClassement3"
-        android:layout_width="119dp"
-        android:layout_height="254dp"
+        android:gravity="center"
+        android:textColor="#979191"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.811"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.134" />
+        app:layout_constraintVertical_bias="0.094" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
