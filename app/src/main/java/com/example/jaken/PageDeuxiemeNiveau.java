@@ -32,11 +32,6 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
         textViewNumeroManche = findViewById(R.id.textViewNumeroManche2);
         textViewScores = findViewById(R.id.textViewScores4);
         btnRegle = findViewById(R.id.btnRegle3);
-//
-//        btnCiseaux.setBackgroundColor(getColor(R.color.white));
-//        btnPierre.setBackgroundColor(getColor(R.color.white));
-//        btnFeuille.setBackgroundColor(getColor(R.color.white));
-//        btnPuit.setBackgroundColor(getColor(R.color.white));
 
         btnCiseaux.setOnClickListener(v-> {
             gestionTour(btnCiseaux, jaken.play(Signe.ciseaux.getValue()));
@@ -131,6 +126,11 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
     }
 
     private void clearColors() {
+        btnCiseaux.setClickable(false);
+        btnPierre.setClickable(false);
+        btnFeuille.setClickable(false);
+        btnPuit.setClickable(false);
+
         new CountDownTimer(1000, 10) {
             public void onTick(long millisUntilFinished) {}
 
@@ -139,6 +139,11 @@ public class PageDeuxiemeNiveau extends AppCompatActivity {
                 btnPierre.setBackgroundColor(getColor(R.color.white));
                 btnFeuille.setBackgroundColor(getColor(R.color.white));
                 btnPuit.setBackgroundColor(getColor(R.color.white));
+
+                btnCiseaux.setClickable(true);
+                btnPierre.setClickable(true);
+                btnFeuille.setClickable(true);
+                btnPuit.setClickable(true);
             }
         }.start();
     }

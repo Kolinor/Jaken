@@ -31,14 +31,11 @@ public class PagePremierNiveau extends AppCompatActivity {
         textViewScores = findViewById(R.id.textViewScores);
         btnRegle = findViewById(R.id.btnRegle);
 
-//        btnCiseaux.setBackgroundColor(getColor(R.color.white));
-//        btnPierre.setBackgroundColor(getColor(R.color.white));
-//        btnFeuille.setBackgroundColor(getColor(R.color.white));
-
         btnCiseaux.setOnClickListener(v-> {
             gestionTour(btnCiseaux, jaken.play(Signe.ciseaux.getValue()));
 
             setNumeroManche();
+            btnCiseaux.setClickable(false);
             clearColors();
         });
 
@@ -117,6 +114,10 @@ public class PagePremierNiveau extends AppCompatActivity {
     }
 
     private void clearColors() {
+        btnCiseaux.setClickable(false);
+        btnPierre.setClickable(false);
+        btnFeuille.setClickable(false);
+
         new CountDownTimer(1500, 1000) {
                 public void onTick(long millisUntilFinished) {}
 
@@ -124,6 +125,10 @@ public class PagePremierNiveau extends AppCompatActivity {
                     btnCiseaux.setBackgroundColor(getColor(R.color.white));
                     btnPierre.setBackgroundColor(getColor(R.color.white));
                     btnFeuille.setBackgroundColor(getColor(R.color.white));
+
+                    btnCiseaux.setClickable(true);
+                    btnPierre.setClickable(true);
+                    btnFeuille.setClickable(true);
                 }
             }.start();
     }
