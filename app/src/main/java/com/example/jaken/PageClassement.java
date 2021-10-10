@@ -37,10 +37,14 @@ public class PageClassement extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             String text = "";
-                            int i = 1;
+                            int i = 0;
+                            boolean start = true;
+                            long lastScore = 0;
+
                             for (DocumentSnapshot document : task.getResult()) {
+                                if (lastScore != (long)document.get("score")) i += 1;
                                 text += i + " - " + document.get("prenom").toString() + " : " + document.get("score").toString() + "\n";
-                                i += 1;
+                                lastScore = (long)document.get("score");
                             }
                             textViewClassement.setText(text);
                         } else {

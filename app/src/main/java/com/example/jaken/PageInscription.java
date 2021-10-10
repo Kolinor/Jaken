@@ -81,7 +81,7 @@ public class PageInscription extends AppCompatActivity {
                 return;
             }
             if (password.length() < 6) {
-                Toast.makeText(getApplicationContext(), "Le mot de passe est vide ou plus petit que 6 caractères", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Le mot de passe doit faire aux moins 6 caractères", Toast.LENGTH_SHORT).show();
                 return;
             }
 
